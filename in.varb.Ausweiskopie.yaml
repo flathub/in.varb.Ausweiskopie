@@ -38,9 +38,6 @@ modules:
   # Unfortunately, Flatpak does not bundle tkinter anymore.
   # Therefore, we need our own Python...
   - name: python
-    build-options:
-      - config-opts:
-          - CFLAGS="-lm"
     sources:
       - type: archive
         url: https://www.python.org/ftp/python/3.14.8/Python-3.14.8.tar.xz
