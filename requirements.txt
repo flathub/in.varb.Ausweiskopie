@@ -1,4 +1,4 @@
 setuptools
-ausweiskopie
-ausweiskopie[portals]
-ausweiskopie[modern]
+pycairo   # Required as it pygobject does not declare it as dependency
+pybind11  # Required as pillow does not declare it as dependency...
+ausweiskopie[portals,modern]

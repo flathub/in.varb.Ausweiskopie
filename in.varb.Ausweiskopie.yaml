@@ -1,6 +1,6 @@
 app-id: in.varb.Ausweiskopie
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '26.08'
 sdk: org.freedesktop.Sdk
 command: ausweiskopie
 finish-args:
@@ -34,6 +34,17 @@ modules:
     subdir: unix
     post-install:
       - chmod +w ${FLATPAK_DEST}/lib/libtk8.6.so
+
+  # Unfortunately, Flatpak does not bundle tkinter anymore.
+  # Therefore, we need our own Python...
+  - name: python
+    build-options:
+      - config-opts:
+          - CFLAGS="-lm"
+    sources:
+      - type: archive
+        url: https://www.python.org/ftp/python/3.14.8/Python-3.14.8.tar.xz
+        sha256: c2215904f02b175596dc49351585104f4bc20341e1c47378b26a2c274360ce73
 
   # Step 2.1: Install requirements for requirements...
   - name: dbus
