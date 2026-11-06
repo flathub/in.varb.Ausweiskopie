@@ -44,9 +44,10 @@ modules:
         sha256: c2215904f02b175596dc49351585104f4bc20341e1c47378b26a2c274360ce73
         x-checker-data:
           type: html
-          url: https://www.python.org/ftp/python/
-          version-pattern: (3\.\d+.\d)/
-          url-template: https://www.python.org/ftp/python/$version/Python-$version.tar.xz
+          # Stay on 3.14.x until a newer series is tested with the app dependencies.
+          # Match published archives, not directories that may only contain prereleases.
+          url: https://www.python.org/downloads/source/
+          pattern: 'href="(https://www\.python\.org/ftp/python/(3\.14\.\d+)/Python-\2\.tar\.xz)"'
 
   # Step 2.1: Install requirements for requirements...
   - name: dbus
