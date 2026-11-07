@@ -40,14 +40,14 @@ modules:
   - name: python
     sources:
       - type: archive
-        url: https://www.python.org/ftp/python/3.14.8/Python-3.14.8.tar.xz
-        sha256: c2215904f02b175596dc49351585104f4bc20341e1c47378b26a2c274360ce73
+        url: https://www.python.org/ftp/python/3.14.10/Python-3.14.10.tar.xz
+        sha256: de414a57119abef52784d8993e341d53aed635fc2b05c2607d9f98a2c5b72032
         x-checker-data:
           type: html
           # Stay on 3.14.x until a newer series is tested with the app dependencies.
           # Match published archives, not directories that may only contain prereleases.
           url: https://www.python.org/downloads/source/
-          pattern: 'href="(https://www\.python\.org/ftp/python/(3\.14\.\d+)/Python-\2\.tar\.xz)"'
+          pattern: href="(https://www\.python\.org/ftp/python/(3\.14\.\d+)/Python-\2\.tar\.xz)"
 
   # Step 2.1: Install requirements for requirements...
   - name: dbus
